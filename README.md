@@ -1,70 +1,267 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Компоненты
 
-## Available Scripts
+Необходимо выполнить и предоставить на проверку следующие задачи:
 
-In the project directory, you can run:
+<details>
+<summary>1. Страница интернет-магазина (функциональный компонент)</summary>
 
-### `npm start`
+# Страница интернет-магазина
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+  Необходимо создать React-компонент `ShopItemFunc` (функциональный компонент), с помощью которого мы могли бы реализовывать представление информации о товарах из нашего каталога на сайте в таком виде (компонент обведён пунктирной линией):
+  ![Внешний вид страницы после реализации компонента](./res/preview.png)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Пример использования
 
-### `npm test`
+  ```jsx
+  const item = {
+    brand: 'Tiger of Sweden',
+    title: 'Leonard coat',
+    description: 'Minimalistic coat in cotton-blend',
+    descriptionFull: 'Men\'s minimalistic overcoat in cotton-blend. Features a stand-up collar, concealed front closure and single back vent. Slim fit with clean, straight shape. Above-knee length.',
+    price: 399,
+    currency: '£'
+  }
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+  // Внутри компонента App
+  return (
+    <div className="container">
+      <div className="background-element">
+      </div>
+      <div className="highlight-window">
+        <div className='highlight-overlay'></div>
+      </div>
+      <div className="window">
+        <ShopItemFunc item={item} />
+      </div>
+    </div>
+  )
+  ```
 
-### `npm run build`
+## Описание компонента
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+  Компонент должен иметь один props `item`, в котором он ожидает объект с информацией о товаре со следующими свойствами:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- `brand` — название производителя товара;
+- `title` — название товара;
+- `description` — краткое описание товара;
+- `descriptionFull` — подробное описание товара;
+- `price` — цена товара;
+- `currency` — валюта товара.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+  Компонент должен создавать DOM элемент следующей структуры:
 
-### `npm run eject`
+```html
+  <div class="main-content">
+    <h2>Tiger of Sweden</h2>
+    <h1>Leonard coat</h1>
+    <h3>Minimalistic coat in cotton-blend</h3>
+    <div class="description">
+      Men's minimalistic overcoat in cotton-blend. Features a stand-up collar, concealed front closure and single back vent. Slim fit with clean, straight shape. Above-knee length.
+    </div>
+    <div class="highlight-window mobile"><div class="highlight-overlay"></div></div>
+    <div class="divider"></div>
+    <div class="purchase-info">
+      <div class="price">£399.00</div>
+      <button>Добавить в корзину</button>
+    </div>
+  </div>
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+  Соответственно название производителя необходимо подставить в `h2`, название товара в `h1`, краткое описание в `h3`, подробное описание в `div.description`, цену и валюту в `div.price`. При этом символ валюты должен следовать перед ценой, а цена должна быть представлена с двумя числами после запятой.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Реализация
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+  Реализуйте полноценный проект с помощью create-react-app. Для item можете использовать либо тип `object`, либо вынести item в класс и использовать `instanceOf`.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+  Используйте расположенный в этом каталоге CSS для стилизации.
 
-## Learn More
+  Необязательная часть задачи (со звездочкой): задействуйте prop-types в реализации проекта.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+</details>
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+<details><summary>2. Страница интернет-магазина (class-based компонент)</summary>
 
-### Code Splitting
+# Страница интернет-магазина
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Необходимо создать React-компонент `ShopItemClass` (class-based компонент), с помощью которого мы могли бы реализовывать представление информации о товарах из нашего каталога на сайте в таком виде (компонент обведён пунктирной линией):
+![Внешний вид страницы после реализации компонента](./res/preview.png)
 
-### Analyzing the Bundle Size
+## Пример использования
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+```jsx
+const item = {
+  brand: 'Tiger of Sweden',
+  title: 'Leonard coat',
+  description: 'Minimalistic coat in cotton-blend',
+  descriptionFull: 'Men\'s minimalistic overcoat in cotton-blend. Features a stand-up collar, concealed front closure and single back vent. Slim fit with clean, straight shape. Above-knee length.',
+  price: 399,
+  currency: '£'
+}
 
-### Making a Progressive Web App
+// Внутри компонента App
+return (
+  <div className="container">
+    <div className="background-element">
+    </div>
+    <div className="highlight-window">
+      <div className='highlight-overlay'></div>
+    </div>
+    <div className="window">
+      <ShopItemClass item={item} />
+    </div>
+  </div>
+)
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## Описание компонента
 
-### Advanced Configuration
+Компонент должен иметь один props `item`, в котором он ожидает объект с информацией о товаре со следующими свойствами:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+- `brand` — название производителя товара;
+- `title` — название товара;
+- `description` — краткое описание товара;
+- `descriptionFull` — подробное описание товара;
+- `price` — цена товара;
+- `currency` — валюта товара.
 
-### Deployment
+Компонент должен создавать DOM элемент следующей структуры:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+```html
+<div class="main-content">
+  <h2>Tiger of Sweden</h2>
+  <h1>Leonard coat</h1>
+  <h3>Minimalistic coat in cotton-blend</h3>
+  <div class="description">
+    Men's minimalistic overcoat in cotton-blend. Features a stand-up collar, concealed front closure and single back vent. Slim fit with clean, straight shape. Above-knee length.
+  </div>
+  <div class="highlight-window mobile"><div class="highlight-overlay"></div></div>
+  <div class="divider"></div>
+  <div class="purchase-info">
+    <div class="price">£399.00</div>
+    <button>Добавить в корзину</button>
+  </div>
+</div>
+```
 
-### `npm run build` fails to minify
+Соответственно название производителя необходимо подставить в `h2`, название товара в `h1`, краткое описание в `h3`, подробное описание в `div.description`, цену и валюту в `div.price`. При этом символ валюты должен следовать перед ценой, а цена должна быть представлена с двумя числами после запятой.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Реализация
+
+Реализуйте полноценный проект с помощью create-react-app. Для item можете использовать либо тип `object`, либо вынести item в класс и использовать `instanceOf`.
+
+Используйте расположенный в этом каталоге CSS для стилизации.
+
+Необязательная часть задачи (со звездочкой): задействуйте prop-types в реализации проекта.
+
+</details>
+
+<details>
+  <summary>3. Календарь — необязательная задача со звёздочкой</summary>
+
+# Календарь
+
+Создать React-компонет `Calendar` (функциональный компонент), который бы показывал текущую дату и текущий месяц, как показано на картинке:
+![Внешний вид компонента](./res/previewCalendar.png)
+
+## Пример использования
+
+```jsx
+const now = new Date(2017, 2, 8);
+
+// внутри компонента App:
+return (
+  <Calendar date={now} />
+);
+```
+
+## Описание компонента
+
+Компонент должен иметь один атрибут `date`, в котором он ожидает текущую дату, _объект_ `Date`.
+
+Компонент должен создавать DOM элемент следующей структуры:
+```html
+<div class="ui-datepicker">
+  <div class="ui-datepicker-material-header">
+    <div class="ui-datepicker-material-day">Среда</div>
+    <div class="ui-datepicker-material-date">
+      <div class="ui-datepicker-material-day-num">8</div>
+      <div class="ui-datepicker-material-month">Марта</div>
+      <div class="ui-datepicker-material-year">2017</div>
+    </div>
+  </div>
+  <div class="ui-datepicker-header">
+    <div class="ui-datepicker-title">
+      <span class="ui-datepicker-month">Март</span>&nbsp;<span class="ui-datepicker-year">2017</span>
+    </div>
+  </div>
+  <table class="ui-datepicker-calendar">
+    <colgroup>
+      <col>
+      <col>
+      <col>
+      <col>
+      <col>
+      <col class="ui-datepicker-week-end">
+      <col class="ui-datepicker-week-end">
+    </colgroup>
+    <thead>
+      <tr>
+        <th scope="col" title="Понедельник">Пн</th>
+        <th scope="col" title="Вторник">Вт</th>
+        <th scope="col" title="Среда">Ср</th>
+        <th scope="col" title="Четверг">Чт</th>
+        <th scope="col" title="Пятница">Пт</th>
+        <th scope="col" title="Суббота">Сб</th>
+        <th scope="col" title="Воскресенье">Вс</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="ui-datepicker-other-month">27</td>
+        <td class="ui-datepicker-other-month">28</td>
+        <td>1</td>
+        <td>2</td>
+        <td>3</td>
+        <td>4</td>
+        <td>5</td>
+      </tr>
+      <tr>
+        <td>6</td>
+        <td>7</td>
+        <td class="ui-datepicker-today">8</td>
+        <td>9</td>
+        <td>10</td>
+        <td>11</td>
+        <td>12</td>
+      </tr>
+      <!-- остальные недели -->
+    </tbody>
+  </table>
+</div>
+```
+
+Дата, переданная в атрибуте `date`, должна быть выделена классом `ui-datepicker-today`.
+
+Если месяц начинается не с понедельника, то необходимо показать даты предыдущего месяца в этой неделе и пометить их классом `ui-datepicker-other-month`. Аналогично, если месяц заканчивается не в воскресенье, то неделю нужно добить датами следующего месяца и так же их пометить классом `ui-datepicker-other-month`.
+
+День недели на русском языке необходимо поместить в тег `div.ui-datepicker-material-day`, дату в `div.ui-datepicker-material-day-num`, месяц на русском языке в родительном падеже в тег `div.ui-datepicker-material-month`, год в тег `div.ui-datepicker-material-year`.
+
+Также текущий месяц на русском языке в именительном падеже необходимо поместить в тег `span.ui-datepicker-month`, а год в тег `span.ui-datepicker-year`.
+
+## Реализация
+
+При необходимости можете воспользоваться библиотекой Moment.js, установив её через npm, не забудьте, что это не dev-зависимость.
+
+Используйте расположенный в этом каталоге CSS-файл для стилизации.
+
+</details>  
+</br>
+
+---
+
+Любые вопросы по решению задач задавайте в группе в Discord.
+
+Все три задачи лучше сдавать в разных репозиториях, то есть через create-react-app реализовать три проекта, чтобы не было конфликта стилей. Но если вы позаботитесь о том, что конфликта не будет, то можете сдавать и в одном проекте.
+
+Все стили необходимо размещать в файле App.css.
