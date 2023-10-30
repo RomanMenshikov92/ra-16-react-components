@@ -1,14 +1,12 @@
 # Компоненты
 
----
-
 [![Appveyor Build status](https://ci.appveyor.com/api/projects/status/bf2kfw7ky7jsy0b3?svg=true)](https://ci.appveyor.com/project/RomanMenshikov92/ra-16-react-components)
 
 [![Pages build status](https://github.com/RomanMenshikov92/ra-16-react-components/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/RomanMenshikov92/ra-16-react-components/actions/workflows/pages/pages-build-deployment)
 
 ---
 
-GutHub: [LINK-WEBSITE](https://romanmenshikov92.github.io/ra-16-react-components/)
+## [GutHub Pages](https://romanmenshikov92.github.io/ra-16-react-components/)
 
 Необходимо выполнить и предоставить на проверку следующие задачи:
 
