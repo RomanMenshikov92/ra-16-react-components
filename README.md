@@ -1,6 +1,12 @@
 # Компоненты
 
-AppVeyor: [![Build status](https://ci.appveyor.com/api/projects/status/bf2kfw7ky7jsy0b3?svg=true)](https://ci.appveyor.com/project/RomanMenshikov92/ra-16-react-components)
+---
+
+[![Appveyor Build status](https://ci.appveyor.com/api/projects/status/bf2kfw7ky7jsy0b3?svg=true)](https://ci.appveyor.com/project/RomanMenshikov92/ra-16-react-components)
+
+[![Pages build status](https://github.com/RomanMenshikov92/ra-16-react-components/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/RomanMenshikov92/ra-16-react-components/actions/workflows/pages/pages-build-deployment)
+
+---
 
 GutHub: [LINK-WEBSITE](https://romanmenshikov92.github.io/ra-16-react-components/)
 
@@ -267,3 +273,16 @@ return <Calendar date={now} />;
 Все три задачи лучше сдавать в разных репозиториях, то есть через create-react-app реализовать три проекта, чтобы не было конфликта стилей. Но если вы позаботитесь о том, что конфликта не будет, то можете сдавать и в одном проекте.
 
 Все стили необходимо размещать в файле App.css.
+
+#### Альтернативный способ создания приложения React с использованием тулинга Vite
+
+Приложение также можно создать используя инструмент Vite.
+Документация по созданию приложения [React](https://vitejs.dev/guide/).
+
+1. Откройте терминал и пропишите следующую команду: `yarn create vite my-app --template react`,
+   либо `yarn create vite my-app --template react-ts`, если
+   нужен шаблон с TypeScript. Эта команда создаст настроенный
+   шаблонный проект.
+2. Откройте созданный проект в своей IDE.
+3. Установите зависимости.
+4. Готово. Чтобы запустить приложение, введите команду: `yarn dev`(либо `npm run dev`).
